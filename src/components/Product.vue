@@ -1,10 +1,11 @@
 <template>
     <div @click="show(product)" id="product" class="m-1 p-1">
         <img :src="product.image">
-        <div>Name: {{ product.name }}</div>
-        <div>Size: {{ product.size }}</div>
-        <div>Price: {{ product.price }}</div>
-        <div>Color: {{ product.color }}</div>
+        <div >{{ product.name }}</div>
+        <div>
+            <span class="productName">{{ product.price }}</span>
+            <b-button variant="outline-info" class="float-right">Add to cart</b-button>
+        </div>
     </div>
 </template>
 
@@ -31,11 +32,21 @@
     }
 
     #product {
-        border: solid black 2px;
+        background-color: white;
     }
 
     #product:hover {
         cursor: pointer;
+    }
+
+    .productName {
+        font-weight: bold;
+        font-size: 1.6em;
+        text-align: center;
+    }
+
+    .addToCart {
+        width: 100%;
     }
 
 </style>
