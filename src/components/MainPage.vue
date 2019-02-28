@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h1>MAIN PAGE</h1>
-
+  <div class="container">
+      <h1>MAIN PAGE</h1>
+      <b-button variant="danger">Button</b-button>
   </div>
 </template>
 

@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <h1>THE HEADER</h1>
+  <div height="70%">
+    <h1>THE FOOTER</h1>
 
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TheHeader'
+  name: 'TheFooter'
 }
 </script>
 

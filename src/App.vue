@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
       <app-header/>
       <MainPage/>
       <app-footer/>
@@ -8,8 +8,8 @@
 
 <script>
 import MainPage from './components/MainPage'
-import TheHeader from './components/TheHeader'
-import TheFooter from './components/TheFooter'
+import TheHeader from './components/includes/TheHeader'
+import TheFooter from './components/includes/TheFooter'
 
 export default {
   name: 'app',
@@ -22,12 +22,15 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+    html, body, #app {
+  		min-height: 100%;
+  	}
+  	body {
+  		position: relative;
+  		min-height: 100%;
+  		box-sizing: border-box;
+  	}
+  	.container {
+  		height: 100%;
+  	}
 </style>
