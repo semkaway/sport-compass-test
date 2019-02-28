@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="app">
         <app-header/>
         <router-view/>
         <app-footer/>
@@ -24,13 +24,11 @@
         min-height: 100%;
     }
 
-    body {
-        position: relative;
-        min-height: 100%;
-        box-sizing: border-box;
+    .container {
+        min-height: calc(100vh - 40px);
     }
 
-    .container {
-        height: 100%;
+    a {
+        text-decoration: none;
     }
 </style>

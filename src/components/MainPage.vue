@@ -1,17 +1,28 @@
 <template>
-  <div class="container">
-      <h1>MAIN PAGE</h1>
-      <b-button variant="danger">Button</b-button>
-  </div>
+    <b-container class="bv-example-row container">
+        <b-row>
+            <b-col v-for="product in products" :key="product.id">
+                <Product :product="product"/>
+            </b-col>
+        </b-row>
+    </b-container>
 </template>
 
 <script>
-export default {
-  name: 'MainPage'
-}
+    import Product from './Product'
+    import products from './data/products'
+
+    export default {
+        name: 'MainPage',
+        components: { Product },
+        data() {
+            return {
+                products: products
+            }
+        }
+    }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 </style>

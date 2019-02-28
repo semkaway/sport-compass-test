@@ -1,5 +1,5 @@
 <template>
-  <div height="70%">
+  <div class="bg-info" height="40px">
     <h1>THE FOOTER</h1>
 
   </div>
@@ -13,5 +13,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+
 
 </style>
