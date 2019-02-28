@@ -1,7 +1,7 @@
 <template>
-    <b-container class="bv-example-row container">
+    <b-container class="container" fluid>
         <b-row>
-            <b-col v-for="product in products" :key="product.id">
+            <b-col v-for="product in products" :key="product.id" lg="3" xs="12" md="4" class="p-2">
                 <Product :product="product"/>
             </b-col>
         </b-row>
