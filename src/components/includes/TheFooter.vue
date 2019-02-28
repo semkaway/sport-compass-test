@@ -6,9 +6,9 @@
 </template>
 
 <script>
-export default {
-  name: 'TheFooter'
-}
+    export default {
+      name: 'TheFooter'
+    }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
