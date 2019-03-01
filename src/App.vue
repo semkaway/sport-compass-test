@@ -31,4 +31,11 @@
     a {
         text-decoration: none;
     }
+
+    .productPrice {
+        font-weight: bold;
+        font-size: 1.6em;
+        text-align: center;
+    }
+    
 </style>

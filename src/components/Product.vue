@@ -1,13 +1,22 @@
 <template>
-    <div @click="show(product)" id="product" class="m-1 p-1">
-        <img :src="product.image">
-        <div >{{ product.name }}</div>
-        <div>
-            <span class="productName">{{ product.price }}</span>
-            <b-button variant="outline-info" class="float-right">Add to cart</b-button>
+    <div @click="show(product)" class="product m-1 p-1">
+        <div class="imageHolder">
+            <img :src="product.image[0] || require('@/assets/img/defaultImage.jpg')" />
         </div>
+        <div class="mt-2">
+            <div >{{ product.name }}</div>
+            <div>
+                <span class="productPrice">{{ product.price }}</span>
+                <b-button variant="outline-info" class="float-right">Add to cart</b-button>
+            </div>
+        </div>
+
+        <modal :name="product.name" :scrollable="true" height="auto">
+            <ModalProduct :product="product"/>
+        </modal>
     </div>
 </template>
+
 
 <script>
 
@@ -19,7 +28,9 @@
         components: { ModalProduct },
         methods: {
             show (item) {
-                this.$modal.show(ModalProduct, {product: item});
+                this.$modal.show(item.name);
+                // this.$modal.show(ModalProduct, {product: item})
+                console.log("yo: ", item.name)
             }
         }
     }
@@ -27,26 +38,23 @@
 
 <style scoped>
 
+    .imageHolder {
+        height: 80%;
+    }
+
     img {
-        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
     }
 
-    #product {
+    .product {
         background-color: white;
+        position: relative;
+        height: 25em;
     }
 
-    #product:hover {
+    .product:hover {
         cursor: pointer;
-    }
-
-    .productName {
-        font-weight: bold;
-        font-size: 1.6em;
-        text-align: center;
-    }
-
-    .addToCart {
-        width: 100%;
     }
 
 </style>
