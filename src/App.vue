@@ -15,7 +15,10 @@
         components: {
             'app-header': TheHeader,
             'app-footer': TheFooter
-        }
+        },
+        // created() {
+        //     localStorage.products = []
+        // }
     }
 </script>
 
@@ -37,5 +40,5 @@
         font-size: 1.6em;
         text-align: center;
     }
-    
+
 </style>
