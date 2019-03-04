@@ -27,11 +27,11 @@ git clone https://github.com/semkaway/sport-compass-test.git
 ## Built With
 
 <a href="https://vuejs.org/" target="_blank">
-    <img width="120" height='160' src="https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR.jpg">
+    <img width="120" height='150' src="https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR.jpg">
 </a>
 
 <a href="https://bootstrap-vue.js.org/" target="_blank">
-    <img width="120" height='160' src="https://bootstrap-vue.js.org/_nuxt/img/f0a8c9e.png">
+    <img width="120" height='150' src="https://bootstrap-vue.js.org/_nuxt/img/f0a8c9e.png">
 </a>
 
 ## Author

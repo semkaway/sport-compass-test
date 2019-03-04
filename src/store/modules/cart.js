@@ -4,7 +4,7 @@ const state = {
 
 // actions
 const actions = {
-    checkout ({ commit, state }) {
+    checkout ({ commit }) {
         commit('checkoutEverything')
     },
 
@@ -19,11 +19,11 @@ const actions = {
         }
     },
 
-    changeQuantityAtCheckout({ state, commit }, product) {
+    changeQuantityAtCheckout({ commit }, product) {
         commit('changeQuantity', product)
     },
 
-    deleteItem({state, commit}, product) {
+    deleteItem({commit}, product) {
         commit('deleteProduct', product)
     }
 }
