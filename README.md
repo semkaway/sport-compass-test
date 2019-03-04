@@ -4,7 +4,7 @@
 
 Shop sample was created as a test project for [SportCompass](https://sportcompass.dk/). It is an example of a simple e-commerce shop that allows the user to add and manage the items in the cart.
 
-Disclaimer: I don't hold any rights for the pictures displayed on the pages. This is not a real online store, it is only a simulation.
+Disclaimer: I don't have any rights for the pictures displayed on the pages. This is not a real online store, it is only a simulation.
 
 ## Getting Started
 
