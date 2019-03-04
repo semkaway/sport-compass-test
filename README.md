@@ -1,29 +1,34 @@
-# sport-compass-test
+# Shop sample
 
-## Project setup
-```
-yarn install
-```
+## Description
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+Shop sample was created as a test project for [SportCompass](https://sportcompass.dk/). It is an example of a simple e-commerce shop that allows the user to add and manage the items in the cart.
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+Disclaimer: I don't hold any rights for the pictures displayed on the pages. This is not a real online store, it is only a simulation.
 
-### Run your tests
-```
-yarn run test
-```
+## Getting Started
 
-### Lints and fixes files
-```
-yarn run lint
-```
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Prerequisites
+
+[Install node](https://nodejs.org/en/download/)
+
+git clone https://github.com/semkaway/sport-compass-test.git
+
+### How to run the project?
+
+1. `npm install && npm run serve` or `yarn install && yarn serve`
+
+2. Open browser and go to `http://localhost:8080`
+
+3. Enjoy!
+
+## Built With
+
+<a href="https://vuejs.org/" target="_blank">
+    <img width="120" height='160' src="https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR.jpg">
+</a>
+
+## Author
+[Kseniia Vilna](https://github.com/semkaway)
