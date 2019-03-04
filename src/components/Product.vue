@@ -14,10 +14,10 @@
             </div>
         </div>
 
-        <modal :name="product.name" :scrollable="true" height="auto">
+        <modal :name="product.name" width="70%" height="auto" :scrollable="true">
             <ModalProduct :product="product"/>
+            <!-- <b-button class="closeButton" @click="$modal.hide(product.name)">Close</b-button> -->
         </modal>
-        <!-- <modal name="myModal">yuyuyu</modal> -->
     </div>
 </template>
 
@@ -62,8 +62,9 @@
     }
 
     img {
-        max-width: 100%;
-        max-height: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     img:hover {
@@ -85,6 +86,14 @@
 
     .myModal {
         border: red solid 1px;
+    }
+
+    @media only screen and (max-width: 576px) {
+
+        .test .v--modal-box {
+            width: 100%;
+        }
+
     }
 
 </style>

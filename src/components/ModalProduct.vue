@@ -1,5 +1,5 @@
 <template>
-    <div class="modalHolder m-1 p-1">
+    <div class="modalHolder m-1 p-5">
         <span class="productName mb-3">{{ product.name }}</span>
         <div class="imageHolder p-1">
             <div class="mainImage">
@@ -11,17 +11,25 @@
         </div>
         <div class="productDetails p-1">
             <div class="mb-1">{{ product.description }}</div>
+            <div v-if="product.inventory < 3" class="text-danger mt-1">Only {{ product.inventory }} left in stock!</div>
             <div class="mt-5">
-                <b-dropdown slot="append" text="Size" variant="outline-info">
-                    <b-dropdown-item v-for="size in product.size" :key="size.id" @click="chooseSize(size)">{{ size }}</b-dropdown-item>
-                </b-dropdown>
-                <b-dropdown slot="append" text="Quantity" variant="outline-info">
-                    <b-dropdown-item v-for="i in 5" :key="i" @click="updatePrice(i)">{{ i }}</b-dropdown-item>
-                </b-dropdown>
+                <b-button   variant="outline-info"
+                            :pressed="oneSize === size"
+                            class="mr-1"
+                            v-for="oneSize in product.size"
+                            :key="oneSize.id"
+                            @click="chooseSize(oneSize)">{{ oneSize }}
+                </b-button>
+                <div class="ml-5 mt-3 mr-1 inline-block">
+                    <b-button variant="light" class="inline-block" @click="removeItem">-</b-button>
+                    <div class="mx-3 inline-block">{{ quantity }}</div>
+                    <b-button variant="light" class="inline-block" @click="addItem">+</b-button>
+                </div>
                 <div id="price" class="float-right productPrice">{{ product.price }}</div>
                 <div class="clearfix"></div>
             </div>
             <b-button variant="outline-info" class="addToCartButton my-3" @click="addItemToCart(product)">Add</b-button>
+            <b-button variant="outline-danger" class="closeButton mb-1" @click="$modal.hide(product.name)">Close</b-button>
         </div>
     </div>
 </template>
@@ -35,9 +43,10 @@
         props: ['product'],
         data() {
             return {
-                size: String,
+                size: this.product.size[0],
                 quantity: 1,
-                price: 0
+                price: 0,
+                pressed: false
             }
         },
         methods: {
@@ -50,11 +59,24 @@
                 let newPrice = parseInt(this.product.price.substr(1)) * value
                 currentPrice.textContent = "$" + newPrice
                 this.price = newPrice
-                this.quantity = value
             },
             chooseSize(size) {
-                    console.log("Size: ", size)
+                    // let chosenSize = document.getElementById('size')
+                    // chosenSize.text($(this).text()) = size
+                    // chosenSize.val($(this).text());
+                    console.log("chosenSize: ", this)
+                    // self.pressed = true
                     this.size = size
+            },
+            addItem() {
+                if (this.quantity < this.product.inventory)
+                    this.quantity++
+                this.updatePrice(this.quantity)
+            },
+            removeItem() {
+                if (this.quantity > 1)
+                    this.quantity--
+                this.updatePrice(this.quantity)
             },
             addItemToCart() {
                 let newProduct = {
@@ -67,10 +89,6 @@
                     'size': this.size,
                     'price': this.product.price
                 }
-                // newProduct.size = this.size
-                // newProduct.quantity = this.quantity
-                console.log("THIS PRODUCT: ", this.product)
-                console.log("NEW PRODUCT: ", newProduct)
                 this.addProductToCart(newProduct)
             },
             ...mapActions('cart', [
@@ -83,7 +101,8 @@
 <style scoped>
 
     .modalHolder {
-        height: 25em;
+        height: 32em;
+        width: auto;
     }
 
     .imageHolder {
@@ -94,18 +113,18 @@
 
     .mainImage {
         max-width: 100%;
-        height: 75%;
+        height: 80%;
         margin-bottom: 1em;
     }
 
     .mainImage img {
-        max-width: 100%;
-        max-height: 100%;
-        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .thumbnails {
-        height: 20%;
+        height: 15%;
     }
 
     .thumbnails img {
@@ -127,19 +146,49 @@
         width: 100%;
     }
 
+    .closeButton {
+        display: none;
+    }
+
+    .inline-block {
+        display: inline-block;
+    }
+
     @media only screen and (max-width: 576px) {
+
+        .modalHolder {
+            padding: 0 !important;
+        }
+
+
         .imageHolder {
             float: none;
-            /* margin-right: 0; */
-            width: 100%;
+            /* display: block; */
+            width: auto;
             border: 0;
             margin: 0 auto;
         }
 
-        .productDetails {
-            width: 60%;
+        /* .productDetails {
+            display: block;
+        } */
+
+        .thumbnails {
+            width: auto;
         }
 
+        .thumbnails img {
+            max-width: 30%;
+        }
+
+        .productDetails {
+            width: auto;
+        }
+
+        .closeButton {
+            display: block;
+            width: 100%;
+        }
     }
 
 </style>
