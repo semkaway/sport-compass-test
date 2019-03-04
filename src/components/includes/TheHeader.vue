@@ -1,16 +1,16 @@
 <template>
     <div>
-        <b-navbar type="dark" variant="info" fixed>
+        <b-navbar variant="light" fixed style="box-shadow: 0px 2px 20px #ffffff">
             <b-navbar-brand>
-                <router-link class="text-white" to="/">Home</router-link>
+                <router-link class="text-dark" to="/">HOME</router-link>
             </b-navbar-brand>
 
             <b-navbar-nav class="ml-auto">
                 <b-nav-item right>
-                    <b-button variant="outline-info" class="text-white" size="lg">
+                    <b-button variant="outline-ligt" class="text-white" size="lg">
                         <div @click="show">
-                            <i class="material-icons mr-2 mt-1">shopping_cart</i>
-                            <div class="float-right">{{ total }}</div>
+                            <i class="material-icons mr-2 mt-1 text-dark">shopping_cart</i>
+                            <div class="float-right text-dark">{{ total }}</div>
                         </div>
                     </b-button>
                 </b-nav-item>
@@ -34,8 +34,6 @@
         methods: {
             show () {
                 this.$modal.show('checkoutModal');
-                // this.$modal.show(ModalProduct, {product: item})
-                // console.log("yo: ", item.name)
             }
         },
         computed: mapState({
@@ -46,25 +44,23 @@
                 }
                 return total
             },
-            // products: state=> state.cart.items
         }),
     }
 </script>
 
 <style scoped>
 
-a:hover {
-    text-decoration: none;
-}
+    a:hover {
+        text-decoration: none;
+    }
 
-.containerInfo {
-    position: relative;
-}
+    .containerInfo {
+        position: relative;
+    }
 
-.content {
-    position: absolute;
-    /* display: inline-block; */
-    bottom: 0;
-}
+    .content {
+        position: absolute;
+        bottom: 0;
+    }
 
 </style>
