@@ -3,10 +3,10 @@
         <span class="productName mb-3">{{ product.name }}</span>
         <div class="imageHolder p-1">
             <div class="mainImage">
-                <img id="currentPicture" :src="product.image[0] || require('@/assets/img/defaultImage.jpg')">
+                <b-img id="currentPicture" :src="product.image[0] || require('@/assets/img/defaultImage.jpg')" blank-color="rgba(128, 255, 255, 0.5)"></b-img>
             </div>
             <div class="thumbnails">
-                <img @click="nextImage(image)" class="mr-2" v-for="image in product.image" :key="image.id" :src="image" />
+                <b-img @click="nextImage(image)" class="mr-2" blank-color="rgba(128, 255, 255, 0.5)" v-for="image in product.image" :key="image.id" :src="image"></b-img>
             </div>
         </div>
         <div class="productDetails p-1">
@@ -28,6 +28,7 @@
                 <div id="price" class="float-right productPrice">{{ product.price }}</div>
                 <div class="clearfix"></div>
             </div>
+            <div v-if="addSuccess" class="mt-3 text-success">{{ product.name }} {{ this.size }} x {{ this.quantity }} was added to your cart.</div>
             <b-button variant="outline-info" class="addToCartButton my-3" @click="addItemToCart(product)">Add</b-button>
             <b-button variant="outline-danger" class="closeButton mb-1" @click="$modal.hide(product.name)">Close</b-button>
         </div>
@@ -46,7 +47,8 @@
                 size: this.product.size[0],
                 quantity: 1,
                 price: 0,
-                pressed: false
+                pressed: false,
+                addSuccess: false
             }
         },
         methods: {
@@ -61,9 +63,11 @@
                 this.price = newPrice
             },
             chooseSize(size) {
-                    this.size = size
+                this.addSuccess = false
+                this.size = size
             },
             addItem() {
+                this.addSuccess = false
                 if (this.quantity < this.product.inventory)
                     this.quantity++
                 this.updatePrice(this.quantity)
@@ -85,6 +89,7 @@
                     'price': this.product.price
                 }
                 this.addProductToCart(newProduct)
+                this.addSuccess = true
             },
             ...mapActions('cart', [
                 'addProductToCart'

@@ -22,7 +22,8 @@
                     <div class="clearfix"></div>
                 </div>
             </div>
-            <div id="totalPrice">Total: ${{ totalPrice() }}</div>
+            <div id="totalPrice" class="float-right"><strong>Total: ${{ totalPrice() }}</strong></div>
+            <div class="clearfix"></div>
             <b-button variant="outline-info" class="mt-3 w-100" @click="goToCheckout">CHECKOUT</b-button>
         </div>
     </div>
