@@ -6,7 +6,7 @@
         <b-container class="container my-4" fluid>
             <b-row>
                 <h1 class="mx-auto">SHOP TITLE</h1>
-            </b-row?>
+            </b-row>
             <b-row class="mt-4">
                 <b-col v-for="product in products" :key="product.id" lg="3" xs="12" md="4" class="p-2">
                     <Product :product="product"/>
