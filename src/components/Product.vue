@@ -16,7 +16,6 @@
 
         <modal :name="product.name" width="70%" height="auto" :scrollable="true">
             <ModalProduct :product="product"/>
-            <!-- <b-button class="closeButton" @click="$modal.hide(product.name)">Close</b-button> -->
         </modal>
     </div>
 </template>
@@ -31,16 +30,9 @@
         name: 'Product',
         props: ['product'],
         components: { ModalProduct },
-        // data() {
-        //     return {
-        //         quantity: 1
-        //     }
-        // },
         methods: {
             show (item) {
-                this.$modal.show(item.name);
-                // this.$modal.show(ModalProduct, {product: item})
-                // console.log("yo: ", item.name)
+                this.$modal.show(item.name)
             },
             ...mapActions('cart', [
                 'addProductToCart'

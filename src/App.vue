@@ -15,10 +15,7 @@
         components: {
             'app-header': TheHeader,
             'app-footer': TheFooter
-        },
-        // created() {
-        //     localStorage.products = []
-        // }
+        }
     }
 </script>
 

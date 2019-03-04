@@ -61,11 +61,6 @@
                 this.price = newPrice
             },
             chooseSize(size) {
-                    // let chosenSize = document.getElementById('size')
-                    // chosenSize.text($(this).text()) = size
-                    // chosenSize.val($(this).text());
-                    console.log("chosenSize: ", this)
-                    // self.pressed = true
                     this.size = size
             },
             addItem() {
@@ -163,15 +158,10 @@
 
         .imageHolder {
             float: none;
-            /* display: block; */
             width: auto;
             border: 0;
             margin: 0 auto;
         }
-
-        /* .productDetails {
-            display: block;
-        } */
 
         .thumbnails {
             width: auto;

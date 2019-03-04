@@ -60,8 +60,7 @@
                     }
                 }
                 else if (symbol = "+") {
-                    if (newQuantity < product.inventory)
-                    {
+                    if (newQuantity < product.inventory) {
                         newQuantity++
                     }
                 }
